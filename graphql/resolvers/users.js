@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const jwt = require('jswebtoken')
+const jwt = require('jsonwebtoken')
 
 const { SECRET_KEY } = require('../../config')
 const User = require('../../models/User')
@@ -32,7 +32,9 @@ module.exports = {
                 id: res.id,
                 email: res.email,
                 username: res.username
-            }, SECRET+KeyboardEvent, { expiresIn: '1h'})
+            }, SECRET_KEY,
+             { expiresIn: '1h'}
+             )
 
             return{
                 ...res._doc,
