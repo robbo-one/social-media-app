@@ -30,11 +30,12 @@ function Register() {
         event.preventDefault()
         addUser()
     }
-        
+
     return (
-        <div>
-            <Form onSubmit={onSubmit} noValidate>
+        <div className="form-container">
+            <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
                 <h1>Register</h1>
+                <h2>sdfsdfdfdgd</h2>
                 <Form.Input
                 label="Username"
                 placeholder="Username.."
@@ -47,6 +48,7 @@ function Register() {
                 label="Email"
                 placeholder="Email.."
                 name="email"
+                type="email"
                 value={values.email}
                 onChange={onChange}
                 />
@@ -54,6 +56,7 @@ function Register() {
                 label="Password"
                 placeholder="Password.."
                 name="password"
+                type="password"
                 value={values.password}
                 onChange={onChange}
                 />
@@ -61,15 +64,14 @@ function Register() {
                 label="Confirm Password"
                 placeholder="Confirm Password.."
                 name="confirmPassword"
+                type="password"
                 value={values.confirmPassword}
                 onChange={onChange}
                 />
                 <Button type="submit" primary> Register
                 </Button>
                 </Form>
-
-        </div>
-
+            </div>
         )
     }
 
